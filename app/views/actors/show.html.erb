@@ -1,0 +1,17 @@
+<h1>Actor #<%= @actor.id %></h1>
+
+<p>
+  <b>Name:</b>
+  <%= @actor.name %>
+</p>
+
+<p>
+  <b>Dob:</b>
+  <%= @actor.dob %>
+</p>
+<h3>Movies</h3>
+<% @actor.movies.each do |m| %>
+  <%= link_to m.title, movie_path(m.id) %> (<%= m.year %>)<br/>
+<% end %>
+
+

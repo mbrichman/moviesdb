@@ -1,0 +1,22 @@
+<h1>Movies List</h1>
+<p><%= link_to 'Add a New Movie', new_movie_path %></p>
+<table>
+  <th>Votes</th>
+  <th>Title</th>
+  <th>Year</th>
+  <th>Director</th>
+  <% @movies.each do |m| %>
+  <tr>
+    <td><%= m.votes.count %></td>
+    <td><%= link_to m.title, movie_path(m.id) %></td>
+    <td><%= m.year %></td>
+    <td><%= m.director.name %></td>
+    <td><%= form_tag(votes_url, method: 'post') do %>
+        <%= select_tag :user_id, options_from_collection_for_select(User.all, "id", "name"), include_blank: true %>
+        <%= hidden_field_tag :movie_id, m.id %>
+        <%= submit_tag 'Vote!' %>
+        <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,21 @@
+<h1>Director Info</h1>
+
+<p>
+Director Name: <%= @director.name %><br>
+DOB: <%= @director.dob %>
+</p>
+<%= link_to 'Edit Director', edit_director_path(@director.id) %>
+
+<h2>Movies Directed by <%= @director.name %></h2>
+
+<table>
+  <th>Title</th>
+  <th>Year</th>
+<% @director.movies.each do |m| %>
+ <tr>
+  <td><%= link_to m.title, movie_path(m.id) %></td>
+  <td><%= m.year %></td>
+
+ </tr>
+<% end %>
+</table>

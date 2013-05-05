@@ -1,0 +1,17 @@
+<h1>List of Directors</h1>
+<p><%= link_to 'Add New Director', new_director_path %></p>
+
+<table>
+<th>Name</th>
+<th>DOB</th>
+<th></th>
+<% @directors.each do |d| %>
+<tr>
+<td><%= d.name %></td>
+<td><%= d.dob %></td> <td><%= link_to 'Show', director_path(d.id) %> <%= link_to 'Edit', edit_director_path(d.id) %> <%= link_to 'Destroy', director_path(d.id), method: 'delete' %></td>
+</tr>
+<% end %>
+
+
+
+</table>

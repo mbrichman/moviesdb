@@ -1,0 +1,10 @@
+<h1>Edit Director</h1>
+<%= form_tag director_path(@director.id), :method => :put do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name, @director.name %>
+  <p>
+  <%= label_tag :dob %>
+  <%= text_field_tag :dob, @director.dob %>
+  <br>
+  <%= submit_tag 'Update' %>
+<% end %>
